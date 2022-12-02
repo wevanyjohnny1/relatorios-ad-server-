@@ -1,0 +1,159 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Relatorios AD Documentation",
+    "description": "API",
+    "version": "1.0.0",
+    "contact": {
+      "email": "wevanyjohnny@gmail.com"
+    }
+  },
+  "paths": {
+    "/congregations": {
+      "post": {
+        "tags": [
+          "Congregation"
+        ],
+        "summary": "Create a congregation",
+        "description": "Create a new congregation",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "code": "ADSAT01",
+                  "name": "AD Satélite 01"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Congregation already exists"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Congregation"],
+        "summary": "List all congregations",
+        "description": "List all congregations",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        } 
+      }
+    },
+    "/questions": {
+      "post": {
+        "tags": [
+          "Question"
+        ],
+        "summary": "Create a question",
+        "description": "Create a new question",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "subtitle": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "code": "QS01",
+                  "title": "Question title here",
+                  "subtitle": "Question subtitle here",
+                  "type": "string or boolean"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Question code already exists"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Question"],
+        "summary": "List all questions",
+        "description": "List all questions",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "subtitle": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        } 
+      }
+    }
+  }
+}
